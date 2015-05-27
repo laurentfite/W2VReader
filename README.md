@@ -3,9 +3,9 @@ A Word2Vec vector file reader written in Java.
 
 ## How do I use it?
 1. Use word2vec to **train your model** (output it as a .txt)
-> ./word2vec -train wiki_fr.xml -output vectors/wiki-small.txt -size 50 -window 3 -binary 0 -min-count 10
+<pre>./word2vec -train wiki_fr.xml -output vectors/wiki-small.txt -size 50 -window 3 -binary 0 -min-count 10</pre>
 2. Run the `distance.jar` script
-> java -jar distance.jar vectors/wiki-small.txt
+<pre>java -jar distance.jar vectors/wiki-small.txt</pre>
 3. **Type a word** to see the closest word or `word,k` to see the k closest
 <pre>Enter a word after the '$', type EXIT to quit.
 Type `word,k` to see the k closest words

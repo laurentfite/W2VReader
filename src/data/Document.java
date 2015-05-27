@@ -86,9 +86,8 @@ public class Document {
 	 * Get k closest words to 'w'
 	 * @param w
 	 * @param k
-	 * @return A list formatted as a String
+	 * @return An ArrayList of Pair <Closest word, cosine distance>
 	 */
-	// TODO change the output to an ArrayList of Pair<>
 	public ArrayList<Pair<String,Double>> getClosest(String w, int k){
 		
 		double[] max = new double[k];

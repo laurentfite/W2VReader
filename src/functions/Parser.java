@@ -12,6 +12,13 @@ public class Parser {
 	private String infile;
 	private boolean b;
 	
+	/**
+	 * 
+	 * @param file
+	 * Vector file path
+	 * @param binary
+	 * Is the file formated as text or binary?
+	 */
 	public Parser(String file, boolean binary){
 		this.infile = file;
 		this.b = binary;
@@ -55,7 +62,11 @@ public class Parser {
 		return doc;
 	}
 	
-	// TODO
+	/**
+	 * Not functional
+	 * @return
+	 * @throws IOException
+	 */
 	private ArrayList<Word> parseBin() throws IOException{
 		
 		// Create an arraylist of documents that will be returned
@@ -91,7 +102,7 @@ public class Parser {
 	
 	/**
 	 * Parses the file, depending on the format
-	 * @return
+	 * @return An ArrayList of `Word`
 	 * @throws IOException
 	 */
 	public ArrayList<Word> parse() throws IOException{

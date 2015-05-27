@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>W2VReader by laurentfite</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>W2VReader</h1>
+        <p>A Word2Vec vector file reader written in Java.</p>
+
+        <p class="view"><a href="https://github.com/laurentfite/W2VReader">View the Project on GitHub <small>laurentfite/W2VReader</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/laurentfite/W2VReader/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/laurentfite/W2VReader/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/laurentfite/W2VReader">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="w2vreader" class="anchor" href="#w2vreader" aria-hidden="true"><span class="octicon octicon-link"></span></a>W2VReader</h1>
+
+<p>A Word2Vec vector file reader written in Java.</p>
+
+<h2>
+<a id="how-do-i-use-it" class="anchor" href="#how-do-i-use-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>How do I use it?</h2>
+
+<ol>
+<li>Use word2vec to <strong>train your model</strong> (output it as a .txt)
+&gt; ./word2vec -train wiki_fr.xml -output vectors/wiki-small.txt -size 50 -window 3 -binary 0 -min-count 10</li>
+<li>Run the <code>distance.jar</code> script
+&gt; java -jar distance.jar vectors/wiki-small.txt</li>
+<li>
+<strong>Type a word</strong> to see the closest word or <code>word,k</code> to see the k closest
+<pre>Enter a word after the '$', type EXIT to quit.
+Type <code>word,k</code> to see the k closest words
+$ manger
+boire   (0.9227190060515705)
+$ penser,3
+supposer    (0.9250960642638857)
+croire  (0.9132860538727967)
+dire    (0.8389610728779925)
+</pre>
+</li>
+</ol>
+
+<h2>
+<a id="integrate-it-to-your-application" class="anchor" href="#integrate-it-to-your-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integrate it to your application</h2>
+
+<p>The goal of this program is to be integrated in another Java application.
+I will soon release a nice library to be used in any Java project.</p>
+
+<h2>
+<a id="how-does-it-work" class="anchor" href="#how-does-it-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>How does it work?</h2>
+
+<ol>
+<li>The program reads the input file (see below for a small example)
+<pre>
+5 20
+météo 0.007724 -0.019013 -0.020479 0.024848 0.019006 0.015450 -0.003020 0.020078 -0.002475 0.003674 -0.000746 -0.014916 0.006561 -0.006687 -0.019127 0.023771 0.021896 -0.005476 -0.001131 0.002546
+température -0.018188 -0.020036 0.022774 0.000315 -0.012912 -0.015211 -0.015382 0.008485 0.001007 0.006655 -0.021068 -0.019039 -0.000650 0.005718 0.012749 -0.015850 0.020398 0.004635 0.005598 -0.003042
+moche 0.014932 -0.011439 -0.010487 0.010792 -0.003766 0.005154 0.009023 -0.020443 -0.009915 0.014568 0.021159 0.019660 -0.015234 -0.010538 -0.004546 0.010007 -0.018942 0.014989 0.013939 -0.007995
+pluie -0.007758 -0.011192 0.021144 0.019559 -0.005899 0.021075 0.024101 0.009077 0.024915 -0.015556 -0.007658 -0.010537 -0.014536 0.014074 0.007896 0.002125 -0.010968 0.007619 0.015297 0.000968
+</pre>
+</li>
+<li>The data is stored as a <code>data.Document</code>
+</li>
+<li>Then you can use functions such as <code>getClosest</code>
+</li>
+</ol>
+
+<h2>
+<a id="comparing-to-word2vecs-distance" class="anchor" href="#comparing-to-word2vecs-distance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Comparing to Word2Vec's distance</h2>
+
+<p>Word2Vec provides a distance program written in C.
+The output is not exactly the same. I will be working on a small script to evaluate the difference and will continue working on my program to make it better.</p>
+
+<h2>
+<a id="features-to-be-implemented" class="anchor" href="#features-to-be-implemented" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features to be implemented</h2>
+
+<ul>
+<li>A binary file parser</li>
+<li>Maybe a wrapper for running W2V directly in Java</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/laurentfite">laurentfite</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

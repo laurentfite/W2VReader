@@ -19,6 +19,7 @@
         <p>A Word2Vec vector file reader written in Java.</p>
 
         <p class="view"><a href="https://github.com/laurentfite/W2VReader">View the Project on GitHub <small>laurentfite/W2VReader</small></a></p>
+        <p class="view"><a href="https://github.com/laurentfite/W2VReader/doc">View the documentation</a></p>
 
 
         <ul>
@@ -38,9 +39,10 @@
 
 <ol>
 <li>Use word2vec to <strong>train your model</strong> (output it as a .txt)
-&gt; ./word2vec -train wiki_fr.xml -output vectors/wiki-small.txt -size 50 -window 3 -binary 0 -min-count 10</li>
+<pre>./word2vec -train wiki_fr.xml -output vectors/wiki-small.txt -size 50 -window 3 -binary 0 -min-count 10
+</pre></li>
 <li>Run the <code>distance.jar</code> script
-&gt; java -jar distance.jar vectors/wiki-small.txt</li>
+<pre>java -jar distance.jar vectors/wiki-small.txt</pre></li>
 <li>
 <strong>Type a word</strong> to see the closest word or <code>word,k</code> to see the k closest
 <pre>Enter a word after the '$', type EXIT to quit.
@@ -100,6 +102,6 @@ The output is not exactly the same. I will be working on a small script to evalu
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    
+
   </body>
 </html>

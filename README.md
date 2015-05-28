@@ -2,6 +2,8 @@
 A Word2Vec vector file reader written in Java.
 
 ## How do I use it?
+
+### Test it
 1. Use word2vec to **train your model** (output it as a .txt)
 <pre>./word2vec -train wiki_fr.xml -output vectors/wiki-small.txt -size 50 -window 3 -binary 0 -min-count 10</pre>
 2. Run the `distance.jar` script
@@ -17,10 +19,36 @@ croire	(0.9132860538727967)
 dire	(0.8389610728779925)
 </pre>
 
-## Integrate it to your application
+### Integrate it to your application
 
 The goal of this program is to be integrated in another Java application.
-I will soon release a nice library to be used in any Java project.
+By adding w2vreader_lib.jar to your classpath, you will be able to use the library to fetch close words to the one you request.
+For more information, please see the documentation on the website.
+Check out this simple example:
+
+<pre><code>
+public class Main {
+	public static void main(String args[]){
+		// Create a new parser with a vector file
+		Parser p = new Parser("vectors.txt",false);
+		
+		// Get an ArrayList of words from the file
+		ArrayList<Word> al = new ArrayList<Word>();
+		try {
+			al = p.parse();
+		} catch (IOException e) {	
+			e.printStackTrace();
+		}
+		// Create the document with this ArrayList
+		Document doc = new Document(al);
+		
+		/* = = = GET K CLOSEST = = = */
+		for (Pair<String, Double> s: doc.getClosest("météo",3)){
+			System.out.println(s);
+		}
+	}
+}
+</code></pre>
 
 ## How does it work?
 

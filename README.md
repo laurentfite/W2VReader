@@ -50,6 +50,7 @@ public class Main {
 }
 </code></pre>
 
+
 ## How does it work?
 
 1. The program reads the input file (see below for a small example)

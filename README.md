@@ -23,7 +23,7 @@ dire	(0.8389610728779925)
 
 The goal of this program is to be integrated in another Java application.
 By adding `w2vreader_lib.jar` to your classpath, you will be able to use the library to fetch close words to the one you request.<br/>
-For more information, please *see [the documentation](https://github.com/laurentfite/W2VReader/doc)* and check out this *simple example*:
+For more information, please *see [the documentation](http://laurentfite.github.io/W2VReader/doc)* and check out this *simple example*:
 
 ```java
 public class Main {
@@ -60,8 +60,8 @@ pluie -0.007758 -0.011192 0.021144 0.019559 -0.005899 0.021075 0.024101 0.009077
 </pre>
 2. The parsed data is stored as a `data.Document` (which is basically an `ArrayList<Word>`); `Word` being a `String` paired with a `double[]`
 3. Then you can use functions such as `data.Document.getClosest(String w)`, which returns the closest word to the given word.
-*For more information, please see [the documentation](https://github.com/laurentfite/W2VReader/doc).*
-___
+*For more information, please see [the documentation](http://laurentfite.github.io/W2VReader/doc).*
+
 ## Comparing to Word2Vec's distance
 
 Word2Vec provides a distance program written in C.

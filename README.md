@@ -9,11 +9,11 @@ A Word2Vec vector file reader written in Java.
 2. Run the `distance.jar` script
 <pre>java -jar distance.jar vectors/wiki-small.txt</pre>
 3. **Type a word** to see the closest word or `word,k` to see the k closest
-<pre>Enter a word after the '$', type EXIT to quit.
-Type `word,k` to see the k closest words
-$ manger
+<pre>*Enter a word after the '$', type EXIT to quit.
+Type `word,k` to see the k closest words*
+$ **manger**
 boire	(0.9227190060515705)
-$ penser,3
+$ **penser,3**
 supposer	(0.9250960642638857)
 croire	(0.9132860538727967)
 dire	(0.8389610728779925)
@@ -22,37 +22,34 @@ dire	(0.8389610728779925)
 ### Integrate it to your application
 
 The goal of this program is to be integrated in another Java application.
-By adding w2vreader_lib.jar to your classpath, you will be able to use the library to fetch close words to the one you request.
-For more information, please see the documentation on the website.
-Check out this simple example:
+By adding `w2vreader_lib.jar` to your classpath, you will be able to use the library to fetch close words to the one you request.<br/>
+For more information, please *see [the documentation](https://github.com/laurentfite/W2VReader/doc)* and check out this *simple example*:
 
-<pre><code>
+```java
 public class Main {
 	public static void main(String args[]){
 		// Create a new parser with a vector file
 		Parser p = new Parser("vectors.txt",false);
-		
+
 		// Get an ArrayList of words from the file
 		ArrayList<Word> al = new ArrayList<Word>();
 		try {
 			al = p.parse();
-		} catch (IOException e) {	
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		// Create the document with this ArrayList
 		Document doc = new Document(al);
-		
+
 		/* = = = GET K CLOSEST = = = */
 		for (Pair<String, Double> s: doc.getClosest("météo",3)){
 			System.out.println(s);
 		}
 	}
 }
-</code></pre>
-
+```
 
 ## How does it work?
-
 1. The program reads the input file (see below for a small example)
 <pre>
 5 20
@@ -61,9 +58,10 @@ température -0.018188 -0.020036 0.022774 0.000315 -0.012912 -0.015211 -0.015382
 moche 0.014932 -0.011439 -0.010487 0.010792 -0.003766 0.005154 0.009023 -0.020443 -0.009915 0.014568 0.021159 0.019660 -0.015234 -0.010538 -0.004546 0.010007 -0.018942 0.014989 0.013939 -0.007995
 pluie -0.007758 -0.011192 0.021144 0.019559 -0.005899 0.021075 0.024101 0.009077 0.024915 -0.015556 -0.007658 -0.010537 -0.014536 0.014074 0.007896 0.002125 -0.010968 0.007619 0.015297 0.000968
 </pre>
-2. The data is stored as a `data.Document`
-3. Then you can use functions such as `getClosest`
-
+2. The parsed data is stored as a `data.Document` (which is basically an `ArrayList<Word>`); `Word` being a `String` paired with a `double[]`
+3. Then you can use functions such as `data.Document.getClosest(String w)`, which returns the closest word to the given word.
+*For more information, please see [the documentation](https://github.com/laurentfite/W2VReader/doc).*
+___
 ## Comparing to Word2Vec's distance
 
 Word2Vec provides a distance program written in C.
